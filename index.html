@@ -7,6 +7,17 @@
   <title>Baby Baptism Invitation</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+    /* Define the custom font using @font-face */
+    @font-face {
+      font-family: 'Ashley Southine';
+      /* This is the name you'll use in your CSS */
+      src: url('ashley_southine.ttf') format('truetype');
+      /* Path to your font file */
+      font-weight: normal;
+      font-style: normal;
+      /* Consider adding other formats (woff, woff2) for broader browser support if available */
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -99,8 +110,9 @@
   <div class="content">
     <img src="baby-aurora.JPG" alt="Our Baby" class="baby-photo" />
     <h1 id="title">Please join us for the</h1>
-    <h2 id="baptism-of">Baptism of</h2>
-    <h2 style="font-family: 'Ashley Southine', cursive; font-size: 2rem; margin: 1rem 0;">Aurora Oliveira Sellgren</h2>
+    <h2 id="baptism-of" style="font-family: 'Ashley Southine', cursive; font-size: 2rem; margin: 1rem 0;">Baptism of
+    </h2>
+    <h2 style="font-family: 'Ashley Southine', cursive; font-size: 3rem; margin: 1rem 0;">Aurora Oliveira Sellgren</h2>
     <p id="invitation-text">Join us in celebrating the baptism of our beloved baby Aurora!</p>
     <p id="time-place"><strong>Time & Place:</strong> September 14th, 2025, 14:30 at Uppsala Cathedral</p>
 
@@ -143,7 +155,7 @@
 
     function setLanguage(lang) {
       document.getElementById("title").textContent = translations[lang].title;
-      document.getElementById("baptism-of").textContent = translations[lang].baptismOf; // Added this line
+      document.getElementById("baptism-of").textContent = translations[lang].baptismOf;
       document.getElementById("invitation-text").textContent = translations[lang].invitationText;
       document.getElementById("time-place").textContent = translations[lang].timePlace;
       document.getElementById("rsvp-title").textContent = translations[lang].rsvpTitle;
