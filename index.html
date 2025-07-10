@@ -22,13 +22,15 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #ffffff;
+      background: #FFFFFF;
+      /* Changed to white */
       color: #333;
       text-align: center;
     }
 
     header {
       background: #FFFFFF;
+      /* Changed to white */
       padding: 1rem;
       position: relative;
     }
@@ -36,8 +38,8 @@
     .language-selector {
       display: flex;
       justify-content: center;
-      gap: 1px;
-      margin-top: 5px;
+      gap: 10px;
+      margin-top: 10px;
     }
 
     .language-selector button {
@@ -47,6 +49,8 @@
       margin: 0 5px;
       cursor: pointer;
       font-family: 'Poppins', sans-serif;
+      color: #000000;
+      /* Changed to black */
     }
 
     .language-selector button:hover {
@@ -64,6 +68,16 @@
     .content {
       padding: 2rem;
     }
+
+    #title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* Adjust these values as needed */
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      margin: 1rem 0;
+    }
+
 
     .rsvp-form {
       margin-top: 2rem;
@@ -86,9 +100,9 @@
     }
 
     button {
-      background-color: white;
+      background-color: #fcb7c3;
       border: none;
-      color: black;
+      color: white;
       font-weight: bold;
       cursor: pointer;
     }
