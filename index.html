@@ -17,22 +17,41 @@
     }
 
     header {
-      background: #fcd6e0;
+      background: #d57790;
       padding: 1rem;
+      position: relative;
+    }
+
+    .language-selector {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .language-selector button {
+      background: none;
+      border: none;
+      font-size: 0.9rem;
+      margin: 0 5px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .language-selector button:hover {
+      text-decoration: underline;
     }
 
     img.baby-photo {
       width: 250px;
+      height: 250px;
+      object-fit: cover;
       border-radius: 50%;
       margin-top: 1rem;
     }
 
     .content {
       padding: 2rem;
-    }
-
-    .language-selector {
-      margin: 1rem;
     }
 
     .rsvp-form {
@@ -71,18 +90,17 @@
 
 <body>
   <header>
-    <h1 id="title">You're Invited to Our Baby Aurora's Baptism!</h1>
     <div class="language-selector">
-      <label for="language">Language:</label>
-      <select id="language" onchange="changeLanguage()">
-        <option value="en">English</option>
-        <option value="pt">Português</option>
-        <option value="sv">Svenska</option>
-      </select>
+      <button onclick="setLanguage('sv')">🇸🇪 Svenska</button>
+      <button onclick="setLanguage('en')">🇬🇧 English</button>
+      <button onclick="setLanguage('pt')">🇧🇷 Português</button>
     </div>
   </header>
   <div class="content">
     <img src="baby-aurora.JPG" alt="Our Baby" class="baby-photo" />
+    <h1 id="title">Please join us for the</h1>
+    <h2 id="baptism-of">Baptism of</h2>
+    <h2 style="font-family: 'Ashley Southine', cursive; font-size: 2rem; margin: 1rem 0;">Aurora Oliveira Sellgren</h2>
     <p id="invitation-text">Join us in celebrating the baptism of our beloved baby Aurora!</p>
     <p id="time-place"><strong>Time & Place:</strong> September 14th, 2025, 14:30 at Uppsala Cathedral</p>
 
@@ -101,28 +119,31 @@
   <script>
     const translations = {
       en: {
-        title: "You're Invited to Our Baby's Baptism!",
-        invitationText: "Join us in celebrating the baptism of our beloved baby!",
+        title: "Please join us for the",
+        baptismOf: "Baptism of",
+        invitationText: "Join us in celebrating the baptism of our beloved baby Aurora!",
         timePlace: "Time & Place: September 14th, 2025, 14:30 at Uppsala Cathedral",
         rsvpTitle: "RSVP"
       },
       pt: {
-        title: "Você está convidado para o batismo do nosso bebê!",
-        invitationText: "Junte-se a nós para celebrar o batismo do nosso amado bebê!",
+        title: "Por favor, junte-se a nós para o",
+        baptismOf: "Batismo de",
+        invitationText: "Junte-se a nós para celebrar o batismo da nossa amada Aurora!",
         timePlace: "Hora e Local: 14 de Setembro de 2025, 14h30 na Catedral de Uppsala",
         rsvpTitle: "Confirmação de Presença"
       },
       sv: {
-        title: "Du är inbjuden till vårt barns dop!",
-        invitationText: "Fira dopet av vårt älskade barn tillsammans med oss!",
+        title: "Vänligen kom och fira",
+        baptismOf: "Dop av",
+        invitationText: "Fira dopet av vår älskade Aurora tillsammans med oss!",
         timePlace: "Tid och Plats: 14 september 2025, 14:30 i Uppsala domkyrka",
         rsvpTitle: "OSA"
       }
     };
 
-    function changeLanguage() {
-      const lang = document.getElementById("language").value;
+    function setLanguage(lang) {
       document.getElementById("title").textContent = translations[lang].title;
+      document.getElementById("baptism-of").textContent = translations[lang].baptismOf; // Added this line
       document.getElementById("invitation-text").textContent = translations[lang].invitationText;
       document.getElementById("time-place").textContent = translations[lang].timePlace;
       document.getElementById("rsvp-title").textContent = translations[lang].rsvpTitle;
