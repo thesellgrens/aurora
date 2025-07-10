@@ -58,7 +58,7 @@
       text-decoration: underline;
     }
 
-    /* Media Query for Mobile Devices */
+    /* Media Query for Mobile Devices - Header Buttons */
     @media (max-width: 600px) {
       .language-selector button {
         font-size: 0.7rem;
@@ -86,6 +86,50 @@
       /* Adjust these values as needed */
       font-size: clamp(1.5rem, 5vw, 3rem);
       margin: 1rem 0;
+    }
+
+    /* Styles for the info rows - always side-by-side */
+    .info-rows {
+      display: flex;
+      justify-content: center;
+      /* Center the items */
+      gap: 5px;
+      /* Smaller gap for mobile to save space */
+      margin-top: 1rem;
+      /* Ensure no wrapping */
+    }
+
+    .info-row-item {
+      flex: 1;
+      /* Distribute available space equally */
+      min-width: 0;
+      /* Allow items to shrink as much as needed */
+      padding: 0.2rem;
+      /* Reduced padding to save space */
+      font-size: 1.1rem;
+      /* Default font size for desktop */
+      white-space: nowrap;
+      /* Prevent text from wrapping within the item */
+      overflow: hidden;
+      /* Hide overflowing text */
+      text-overflow: ellipsis;
+      /* Add ellipsis for overflowing text */
+    }
+
+    /* Media Query for Mobile Devices - Info Rows */
+    @media (max-width: 600px) {
+      .info-row-item {
+        font-size: 0.8rem;
+        /* Smaller font size for info items on mobile */
+        padding: 0.1rem;
+        /* Even less padding */
+      }
+
+      .info-rows {
+        /* On very small screens, you might still want to add a bit of padding to the container
+           to prevent content from touching the edges, if .content padding isn't enough */
+        padding: 0 5px;
+      }
     }
 
 
@@ -138,9 +182,12 @@
     </h2>
     <h2 style="font-family: 'Ashley Southine', cursive; font-size: 2.5rem; margin: 0rem 0;">Aurora Oliveira Sellgren
     </h2>
-    <p id="invitation-text">Join us in celebrating the baptism of our beloved baby Aurora!</p>
-    <p id="time-place"><strong>Time & Place:</strong> September 14th, 2025, 14:30 at Uppsala Cathedral</p>
 
+    <div class="info-rows">
+      <div class="info-row-item" id="day-of-week">Sunday</div>
+      <div class="info-row-item" id="date"></div>
+      <div class="info-row-item" id="time"></div>
+    </div>
     <form class="rsvp-form">
       <h2 id="rsvp-title">RSVP</h2>
       <input type="text" id="name" name="name" placeholder="Your Name" required />
@@ -159,22 +206,31 @@
         title: "Please join us for the",
         baptismOf: "Baptism of",
         invitationText: "Join us in celebrating the baptism of our beloved baby Aurora!",
-        timePlace: "Time & Place: September 14th, 2025, 14:30 at Uppsala Cathedral",
-        rsvpTitle: "RSVP"
+        // timePlace: "Time & Place: September 14th, 2025, 14:30 at Uppsala Cathedral", // No longer directly used
+        rsvpTitle: "RSVP",
+        dayOfWeek: "Sunday",
+        date: "September 14th, 2025",
+        time: "14:30"
       },
       pt: {
         title: "Por favor, junte-se a nós para o",
         baptismOf: "Batismo de",
         invitationText: "Junte-se a nós para celebrar o batismo da nossa amada Aurora!",
-        timePlace: "Hora e Local: 14 de Setembro de 2025, 14h30 na Catedral de Uppsala",
-        rsvpTitle: "Confirmação de Presença"
+        // timePlace: "Hora e Local: 14 de Setembro de 2025, 14h30 na Catedral de Uppsala", // No longer directly used
+        rsvpTitle: "Confirmação de Presença",
+        dayOfWeek: "Domingo",
+        date: "14 de Setembro de 2025",
+        time: "14:30"
       },
       sv: {
         title: "Vänligen kom och fira",
         baptismOf: "Dop av",
         invitationText: "Fira dopet av vår älskade Aurora tillsammans med oss!",
-        timePlace: "Tid och Plats: 14 september 2025, 14:30 i Uppsala domkyrka",
-        rsvpTitle: "OSA"
+        // timePlace: "Tid och Plats: 14 september 2025, 14:30 i Uppsala domkyrka", // No longer directly used
+        rsvpTitle: "OSA",
+        dayOfWeek: "Söndag",
+        date: "14 september 2025",
+        time: "14:30"
       }
     };
 
@@ -182,9 +238,18 @@
       document.getElementById("title").textContent = translations[lang].title;
       document.getElementById("baptism-of").textContent = translations[lang].baptismOf;
       document.getElementById("invitation-text").textContent = translations[lang].invitationText;
-      document.getElementById("time-place").textContent = translations[lang].timePlace;
+      // document.getElementById("time-place").textContent = translations[lang].timePlace; // No longer directly used
       document.getElementById("rsvp-title").textContent = translations[lang].rsvpTitle;
+
+      // Update the new info rows
+      document.getElementById("day-of-week").textContent = translations[lang].dayOfWeek;
+      document.getElementById("date").textContent = translations[lang].date;
+      document.getElementById("time").textContent = translations[lang].time;
     }
+
+    // Set initial language to English or based on browser preference
+    // Based on current location (Sweden), setting default to Swedish.
+    setLanguage('sv');
   </script>
 </body>
 
