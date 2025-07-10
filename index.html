@@ -185,9 +185,10 @@
 
     <div class="info-rows">
       <div class="info-row-item" id="day-of-week">Sunday</div>
-      <div class="info-row-item" id="date">14 September</div>
-      <div class="info-row-item" id="time">1430</div>
+      <div class="info-row-item" id="date">September 14th</div>
+      <div class="info-row-item" id="time">14:30</div>
     </div>
+    <p id="invitation-text">Join us in celebrating the baptism of our beloved baby Aurora!</p>
     <form class="rsvp-form">
       <h2 id="rsvp-title">RSVP</h2>
       <input type="text" id="name" name="name" placeholder="Your Name" required />
@@ -206,31 +207,28 @@
         title: "Please join us for the",
         baptismOf: "Baptism of",
         invitationText: "Join us in celebrating the baptism of our beloved baby Aurora!",
-        // timePlace: "Time & Place: September 14th, 2025, 14:30 at Uppsala Cathedral", // No longer directly used
         rsvpTitle: "RSVP",
         dayOfWeek: "Sunday",
-        date: "September 14th, 2025",
-        time: "14:30"
+        date: "September 14th", // Updated for consistency with the new HTML
+        time: "14:30" // Updated for consistency with the new HTML
       },
       pt: {
         title: "Por favor, junte-se a nós para o",
         baptismOf: "Batismo de",
         invitationText: "Junte-se a nós para celebrar o batismo da nossa amada Aurora!",
-        // timePlace: "Hora e Local: 14 de Setembro de 2025, 14h30 na Catedral de Uppsala", // No longer directly used
         rsvpTitle: "Confirmação de Presença",
         dayOfWeek: "Domingo",
-        date: "14 de Setembro de 2025",
-        time: "14:30"
+        date: "14 de Setembro", // Translated
+        time: "14:30" // Standard time format
       },
       sv: {
         title: "Vänligen kom och fira",
         baptismOf: "Dop av",
         invitationText: "Fira dopet av vår älskade Aurora tillsammans med oss!",
-        // timePlace: "Tid och Plats: 14 september 2025, 14:30 i Uppsala domkyrka", // No longer directly used
         rsvpTitle: "OSA",
         dayOfWeek: "Söndag",
-        date: "14 september 2025",
-        time: "14:30"
+        date: "14 september", // Translated
+        time: "14:30" // Standard time format
       }
     };
 
@@ -238,7 +236,6 @@
       document.getElementById("title").textContent = translations[lang].title;
       document.getElementById("baptism-of").textContent = translations[lang].baptismOf;
       document.getElementById("invitation-text").textContent = translations[lang].invitationText;
-      // document.getElementById("time-place").textContent = translations[lang].timePlace; // No longer directly used
       document.getElementById("rsvp-title").textContent = translations[lang].rsvpTitle;
 
       // Update the new info rows
@@ -247,8 +244,7 @@
       document.getElementById("time").textContent = translations[lang].time;
     }
 
-    // Set initial language to English or based on browser preference
-    // Based on current location (Sweden), setting default to Swedish.
+    // Set initial language to Swedish based on current location
     setLanguage('sv');
   </script>
 </body>
