@@ -188,7 +188,9 @@
       <div class="info-row-item" id="date">September 14th</div>
       <div class="info-row-item" id="time">14:30</div>
     </div>
-    <p id="invitation-text">Join us in celebrating the baptism of our beloved baby Aurora!</p>
+
+    <p id="invitation-text"></p>
+
     <form class="rsvp-form">
       <h2 id="rsvp-title">RSVP</h2>
       <input type="text" id="name" name="name" placeholder="Your Name" required />
@@ -206,42 +208,44 @@
       en: {
         title: "Please join us for the",
         baptismOf: "Baptism of",
-        invitationText: "Join us in celebrating the baptism of our beloved baby Aurora!",
+        // invitationText: "Join us in celebrating the baptism of our beloved baby Aurora!", // Removed
         rsvpTitle: "RSVP",
         dayOfWeek: "Sunday",
-        date: "September 14th", // Updated for consistency with the new HTML
-        time: "14:30" // Updated for consistency with the new HTML
+        date: "September 14th",
+        time: "14:30"
       },
       pt: {
         title: "Por favor, junte-se a nós para o",
         baptismOf: "Batismo de",
-        invitationText: "Junte-se a nós para celebrar o batismo da nossa amada Aurora!",
+        // invitationText: "Junte-se a nós para celebrar o batismo da nossa amada Aurora!", // Removed
         rsvpTitle: "Confirmação de Presença",
         dayOfWeek: "Domingo",
-        date: "14 de Setembro", // Translated
-        time: "14:30" // Standard time format
+        date: "14 de Setembro",
+        time: "14:30"
       },
       sv: {
         title: "Vänligen kom och fira",
         baptismOf: "Dop av",
-        invitationText: "Fira dopet av vår älskade Aurora tillsammans med oss!",
+        // invitationText: "Fira dopet av vår älskade Aurora tillsammans med oss!", // Removed
         rsvpTitle: "OSA",
         dayOfWeek: "Söndag",
-        date: "14 september", // Translated
-        time: "14:30" // Standard time format
+        date: "14 september",
+        time: "14:30"
       }
     };
 
     function setLanguage(lang) {
       document.getElementById("title").textContent = translations[lang].title;
       document.getElementById("baptism-of").textContent = translations[lang].baptismOf;
-      document.getElementById("invitation-text").textContent = translations[lang].invitationText;
+      // document.getElementById("invitation-text").textContent = translations[lang].invitationText; // Removed
       document.getElementById("rsvp-title").textContent = translations[lang].rsvpTitle;
 
-      // Update the new info rows
       document.getElementById("day-of-week").textContent = translations[lang].dayOfWeek;
       document.getElementById("date").textContent = translations[lang].date;
       document.getElementById("time").textContent = translations[lang].time;
+
+      // Since invitationText is removed, ensure the element is cleared
+      document.getElementById("invitation-text").textContent = "";
     }
 
     // Set initial language to Swedish based on current location
