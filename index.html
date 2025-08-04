@@ -2,137 +2,161 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baby Baptism Invitation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Baptism Invitation</title>
+  <!-- Google Fonts for elegant cursive and clean sans-serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
   <style>
-    /* Define the custom font using @font-face */
-    @font-face {
-      font-family: 'Ashley Southine';
-      /* This is the name you'll use in your CSS */
-      src: url('ashley_southine.ttf') format('truetype');
-      /* Path to your font file */
-      font-weight: normal;
-      font-style: normal;
-      /* Consider adding other formats (woff, woff2) for broader browser support if available */
-    }
-
+    /* General body and font styles */
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #FFFFFF;
-      /* Changed to white */
       color: #333;
       text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f3f0;
+      /* Soft off-white background */
+      position: relative;
+      /* For the background elements */
+      overflow-x: hidden;
+      /* Prevent horizontal scroll */
+      padding-bottom: 2rem;
     }
 
-    header {
-      background: #FFFFFF;
-      /* Changed to white */
+    .container {
+      max-width: 500px;
+      margin: 2rem auto;
       padding: 1rem;
       position: relative;
+      z-index: 1;
     }
 
-    .language-selector {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .language-selector button {
-      background: none;
-      border: none;
-      font-size: 0.9rem;
-      /* Default font size for desktop/larger screens */
-      margin: 0 5px;
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-      color: #000000;
-      /* Changed to black */
-    }
-
-    .language-selector button:hover {
-      text-decoration: underline;
-    }
-
-    /* Media Query for Mobile Devices - Header Buttons */
-    @media (max-width: 600px) {
-      .language-selector button {
-        font-size: 0.7rem;
-        /* Smaller font size for mobile */
-      }
-    }
-
-
-    img.baby-photo {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
+    /* Styles for the baby's photo */
+    .baby-photo-container {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1.5rem;
+      position: relative;
       border-radius: 50%;
-      margin-top: 1rem;
-    }
-
-    .content {
-      padding: 0.6rem;
-    }
-
-    #title {
-      white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
-      /* Adjust these values as needed */
-      font-size: clamp(1.5rem, 5vw, 3rem);
-      margin: 1rem 0;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Styles for the info rows - always side-by-side */
-    .info-rows {
+    .baby-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Heading and text styles */
+    .intro-text {
+      font-weight: 300;
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: #555;
+    }
+
+    .baptism-of {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #e99dbd;
+      /* Pink color to match the theme */
+      margin: 0;
+    }
+
+    .baby-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: #e48cb3;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    /* Date, time, and day section using Flexbox */
+    .date-section {
       display: flex;
       justify-content: center;
-      /* Center the items */
-      gap: 5px;
-      /* Smaller gap for mobile to save space */
-      margin-top: 1rem;
-      /* Ensure no wrapping */
+      align-items: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
 
-    .info-row-item {
-      flex: 1;
-      /* Distribute available space equally */
-      min-width: 0;
-      /* Allow items to shrink as much as needed */
-      padding: 0.2rem;
-      /* Reduced padding to save space */
-      font-size: 1.1rem;
-      /* Default font size for desktop */
+    .line {
+      height: 1px;
+      background-color: #ccc;
+      flex-grow: 1;
+    }
+
+    .day-part,
+    .time-part {
+      font-weight: 600;
+      font-size: 1rem;
       white-space: nowrap;
-      /* Prevent text from wrapping within the item */
-      overflow: hidden;
-      /* Hide overflowing text */
-      text-overflow: ellipsis;
-      /* Add ellipsis for overflowing text */
     }
 
-    /* Media Query for Mobile Devices - Info Rows */
-    @media (max-width: 600px) {
-      .info-row-item {
-        font-size: 0.8rem;
-        /* Smaller font size for info items on mobile */
-        padding: 0.1rem;
-        /* Even less padding */
-      }
-
-      .info-rows {
-        /* On very small screens, you might still want to add a bit of padding to the container
-           to prevent content from touching the edges, if .content padding isn't enough */
-        padding: 0 5px;
-      }
+    .month-and-day {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #6da4bf;
+      line-height: 1;
     }
 
+    /* NEW CSS RULE: Sets the color of the day number to pink */
+    .day-number {
+      color: #e48cb3;
+    }
 
+    .month-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    /* Address and RSVP section using Flexbox */
+    .address-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+      gap: 1rem;
+    }
+
+    .address-block,
+    .rsvp-block {
+      text-align: center;
+      flex: 1;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .dove-icon {
+      font-size: 2rem;
+      color: #f2bed3;
+      margin: 0 1rem;
+    }
+
+    /* Closing text */
+    .closing-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: #3f5f6e;
+      margin-top: 3rem;
+    }
+
+    /* RSVP Form Styles */
     .rsvp-form {
       margin-top: 2rem;
       background: white;
@@ -144,113 +168,159 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    input,
-    select,
-    button {
+    .rsvp-form h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #e48cb3;
+    }
+
+    .rsvp-form input,
+    .rsvp-form select {
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.75rem;
       margin: 0.5rem 0;
       font-family: 'Poppins', sans-serif;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      /* Ensures padding doesn't affect width */
     }
 
-    button {
-      background-color: #fcb7c3;
+    .rsvp-form button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      background-color: #f2bed3;
+      /* Soft pink button */
       border: none;
       color: white;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1rem;
       cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
     }
 
-    button:hover {
-      background-color: #f894a8;
+    .rsvp-form button:hover {
+      background-color: #e48cb3;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .container {
+        margin: 1rem auto;
+      }
+
+      .baby-photo-container {
+        width: 120px;
+        height: 120px;
+      }
+
+      .intro-text {
+        font-size: 1rem;
+      }
+
+      .baptism-of {
+        font-size: 1.8rem;
+      }
+
+      .baby-name {
+        font-size: 2.5rem;
+      }
+
+      .date-section {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .line {
+        width: 50%;
+        margin: 0.5rem 0;
+      }
+
+      .day-part,
+      .time-part {
+        font-size: 0.9rem;
+      }
+
+      .month-and-day {
+        font-size: 1.8rem;
+      }
+
+      .address-section {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .address-block,
+      .rsvp-block {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .dove-icon {
+        margin: 1rem 0;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="language-selector">
-      <button onclick="setLanguage('sv')">🇸🇪 Svenska</button>
-      <button onclick="setLanguage('en')">🇬🇧 English</button>
-      <button onclick="setLanguage('pt')">🇧🇷 Português</button>
-    </div>
-  </header>
-  <div class="content">
-    <img src="baby-aurora.jpeg" alt="Our Baby" class="baby-photo" />
-    <h1 id="title">Please join us for the</h1>
-    <h2 id="baptism-of" style="font-family: 'Ashley Southine', cursive; font-size: 2rem; margin: 1rem 0;">Baptism of
-    </h2>
-    <h2 style="font-family: 'Ashley Southine', cursive; font-size: 2.5rem; margin: 0rem 0;">Aurora Oliveira Sellgren
-    </h2>
 
-    <div class="info-rows">
-      <div class="info-row-item" id="day-of-week">Sunday</div>
-      <div class="info-row-item" id="date">September 14th</div>
-      <div class="info-row-item" id="time">14:30</div>
+  <div class="container">
+    <!-- Baby Photo -->
+    <div class="baby-photo-container">
+      <!-- Use a placeholder image from a service like placehold.co -->
+      <img src="baby-aurora.jpeg" alt="A photo of the baby" class="baby-photo">
     </div>
 
-    <p id="invitation-text"></p>
+    <!-- Invitation Text -->
+    <p class="intro-text">Please Join us for the</p>
+    <h2 class="baptism-of">Baptism of</h2>
+    <h1 class="baby-name">Aurora Oliveira Sellgren</h1>
 
+    <!-- Date and Time Section -->
+    <div class="date-section">
+      <span class="day-part">Sunday</span>
+      <div class="line"></div>
+      <div class="month-and-day">
+        <span class="day-number">14</span>
+        <span class="month-text">September</span>
+      </div>
+      <div class="line"></div>
+      <span class="time-part">14:30</span>
+    </div>
+
+    <!-- Address and RSVP Section -->
+    <div class="address-section">
+      <div class="address-block">Uppsala Cathedral<br> Sweden
+      </div>
+      <span class="dove-icon">🕊️</span>
+      <div class="rsvp-block">Domkyrkoplan<br>753 10 Uppsala
+      </div>
+    </div>
+
+    <!-- RSVP Form -->
     <form class="rsvp-form">
-      <h2 id="rsvp-title">RSVP</h2>
-      <input type="text" id="name" name="name" placeholder="Your Name" required />
-      <select id="response" name="response" required>
+      <h2>Kindly RSVP</h2>
+      <input type="text" placeholder="Your Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <select required>
         <option value="">Will you attend?</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+        <option value="yes">Yes, I will attend</option>
+        <option value="no">No, I can't make it</option>
       </select>
       <button type="submit">Submit</button>
     </form>
+
+    <!-- Closing Text -->
+    <p class="closing-text">
+      We appreciate <br>your presence
+    </p>
   </div>
-
-  <script>
-    const translations = {
-      en: {
-        title: "Please join us for the",
-        baptismOf: "Baptism of",
-        // invitationText: "Join us in celebrating the baptism of our beloved baby Aurora!", // Removed
-        rsvpTitle: "RSVP",
-        dayOfWeek: "Sunday",
-        date: "September 14th",
-        time: "14:30"
-      },
-      pt: {
-        title: "Por favor, junte-se a nós para o",
-        baptismOf: "Batismo de",
-        // invitationText: "Junte-se a nós para celebrar o batismo da nossa amada Aurora!", // Removed
-        rsvpTitle: "Confirmação de Presença",
-        dayOfWeek: "Domingo",
-        date: "14 de Setembro",
-        time: "14:30"
-      },
-      sv: {
-        title: "Vänligen kom och fira",
-        baptismOf: "Dop av",
-        // invitationText: "Fira dopet av vår älskade Aurora tillsammans med oss!", // Removed
-        rsvpTitle: "OSA",
-        dayOfWeek: "Söndag",
-        date: "14 september",
-        time: "14:30"
-      }
-    };
-
-    function setLanguage(lang) {
-      document.getElementById("title").textContent = translations[lang].title;
-      document.getElementById("baptism-of").textContent = translations[lang].baptismOf;
-      // document.getElementById("invitation-text").textContent = translations[lang].invitationText; // Removed
-      document.getElementById("rsvp-title").textContent = translations[lang].rsvpTitle;
-
-      document.getElementById("day-of-week").textContent = translations[lang].dayOfWeek;
-      document.getElementById("date").textContent = translations[lang].date;
-      document.getElementById("time").textContent = translations[lang].time;
-
-      // Since invitationText is removed, ensure the element is cleared
-      document.getElementById("invitation-text").textContent = "";
-    }
-
-    // Set initial language to Swedish based on current location
-    setLanguage('sv');
-  </script>
 </body>
 
 </html>
