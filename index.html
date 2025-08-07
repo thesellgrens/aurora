@@ -20,11 +20,8 @@
       margin: 0;
       padding: 0;
       background-color: #f7f3f0;
-      /* Soft off-white background */
       position: relative;
-      /* For the background elements */
       overflow-x: hidden;
-      /* Prevent horizontal scroll */
       padding-bottom: 2rem;
     }
 
@@ -36,7 +33,6 @@
       z-index: 1;
     }
 
-    /* Styles for the baby's photo */
     .baby-photo-container {
       width: 150px;
       height: 150px;
@@ -54,7 +50,6 @@
       object-fit: cover;
     }
 
-    /* Heading and text styles */
     .intro-text {
       font-weight: 300;
       font-size: 1.2rem;
@@ -66,7 +61,6 @@
       font-family: 'Dancing Script', cursive;
       font-size: 2rem;
       color: #e99dbd;
-      /* Pink color to match the theme */
       margin: 0;
     }
 
@@ -78,7 +72,6 @@
       line-height: 1.2;
     }
 
-    /* Date, time, and day section using Flexbox */
     .date-section {
       display: flex;
       justify-content: center;
@@ -110,7 +103,6 @@
       line-height: 1;
     }
 
-    /* NEW CSS RULE: Sets the color of the day number to pink */
     .day-number {
       color: #e48cb3;
     }
@@ -123,7 +115,6 @@
       margin-top: 0.5rem;
     }
 
-    /* Address and RSVP section using Flexbox */
     .address-section {
       display: flex;
       justify-content: space-between;
@@ -148,7 +139,6 @@
       margin: 0 1rem;
     }
 
-    /* Closing text */
     .closing-text {
       font-family: 'Dancing Script', cursive;
       font-size: 1.5rem;
@@ -156,7 +146,6 @@
       margin-top: 3rem;
     }
 
-    /* RSVP Form Styles */
     .rsvp-form {
       margin-top: 2rem;
       background: white;
@@ -185,7 +174,6 @@
       border: 1px solid #ccc;
       border-radius: 4px;
       box-sizing: border-box;
-      /* Ensures padding doesn't affect width */
     }
 
     .rsvp-form button {
@@ -193,7 +181,6 @@
       padding: 0.75rem;
       margin-top: 1rem;
       background-color: #f2bed3;
-      /* Soft pink button */
       border: none;
       color: white;
       font-weight: 600;
@@ -207,7 +194,13 @@
       background-color: #e48cb3;
     }
 
-    /* Mobile adjustments */
+    #success-message {
+      margin-top: 1rem;
+      color: #4CAF50;
+      font-weight: bold;
+      display: none;
+    }
+
     @media (max-width: 480px) {
       .container {
         margin: 1rem auto;
@@ -269,20 +262,13 @@
 </head>
 
 <body>
-
   <div class="container">
-    <!-- Baby Photo -->
     <div class="baby-photo-container">
-      <!-- Use a placeholder image from a service like placehold.co -->
       <img src="baby-aurora.jpeg" alt="A photo of the baby" class="baby-photo">
     </div>
-
-    <!-- Invitation Text -->
     <p class="intro-text">Please Join us for the</p>
     <h2 class="baptism-of">Baptism of</h2>
     <h1 class="baby-name">Aurora Oliveira Sellgren</h1>
-
-    <!-- Date and Time Section -->
     <div class="date-section">
       <span class="day-part">Sunday</span>
       <div class="line"></div>
@@ -293,34 +279,50 @@
       <div class="line"></div>
       <span class="time-part">14:30</span>
     </div>
-
-    <!-- Address and RSVP Section -->
     <div class="address-section">
-      <div class="address-block">Uppsala Cathedral<br> Sweden
-      </div>
+      <div class="address-block">Uppsala Cathedral<br> Sweden</div>
       <span class="dove-icon">🕊️</span>
-      <div class="rsvp-block">Domkyrkoplan<br>753 10 Uppsala
-      </div>
+      <div class="rsvp-block">Domkyrkoplan<br>753 10 Uppsala</div>
     </div>
-
-    <!-- RSVP Form -->
-    <form class="rsvp-form">
+    <form class="rsvp-form" id="rsvp-form"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdSLi3dbCnVggkk3jCLXJNsQdXLFHYk4RzaZr6-SUJrTlzlhw/formResponse"
+      method="POST" target="hidden-iframe">
       <h2>Kindly RSVP</h2>
-      <input type="text" placeholder="Your Name" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <select required>
+      <input type="text" placeholder="Your Name" name="entry.977522876" required>
+      <input type="tel" placeholder="Phone Number" name="entry.1579339437" required>
+      <select name="entry.192193575" required>
         <option value="">Will you attend?</option>
-        <option value="yes">Yes, I will attend</option>
-        <option value="no">No, I can't make it</option>
+        <option value="Yes, I will attend">Yes, I will attend</option>
+        <option value="No, I can't make it">No, I can't make it</option>
       </select>
       <button type="submit">Submit</button>
     </form>
-
-    <!-- Closing Text -->
-    <p class="closing-text">
-      We appreciate <br>your presence
-    </p>
+    <p id="success-message">Thank you for your RSVP!</p>
+    <iframe name="hidden-iframe" style="display:none;"></iframe>
+    <p class="closing-text">We appreciate <br>your presence</p>
   </div>
+  <script>
+    const form = document.getElementById('rsvp-form');
+    const successMessage = document.getElementById('success-message');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const data = new URLSearchParams(formData);
+
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        mode: 'no-cors'
+      }).then(() => {
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+      }).catch(error => {
+        console.error('Error submitting form:', error);
+        alert('There was an error submitting your RSVP. Please try again.');
+      });
+    });
+  </script>
 </body>
 
 </html>
