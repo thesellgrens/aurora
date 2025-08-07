@@ -33,6 +33,39 @@
       z-index: 1;
     }
 
+    /* Styles for the language selection nav bar */
+    .language-nav {
+      background-color: #fff;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .language-btn {
+      background: none;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #777;
+      padding: 0.5rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .language-btn.active {
+      color: #e48cb3;
+      text-decoration: underline;
+    }
+
+    .language-btn:hover {
+      color: #e48cb3;
+    }
+
+    /* Styles for the baby's photo */
     .baby-photo-container {
       width: 150px;
       height: 150px;
@@ -50,6 +83,7 @@
       object-fit: cover;
     }
 
+    /* Heading and text styles */
     .intro-text {
       font-weight: 300;
       font-size: 1.2rem;
@@ -61,6 +95,7 @@
       font-family: 'Dancing Script', cursive;
       font-size: 2rem;
       color: #e99dbd;
+      /* Pink color to match the theme */
       margin: 0;
     }
 
@@ -72,6 +107,7 @@
       line-height: 1.2;
     }
 
+    /* Date, time, and day section using Flexbox */
     .date-section {
       display: flex;
       justify-content: center;
@@ -103,6 +139,7 @@
       line-height: 1;
     }
 
+    /* Sets the color of the day number to pink */
     .day-number {
       color: #e48cb3;
     }
@@ -115,6 +152,7 @@
       margin-top: 0.5rem;
     }
 
+    /* Address and RSVP section using Flexbox */
     .address-section {
       display: flex;
       justify-content: space-between;
@@ -139,6 +177,7 @@
       margin: 0 1rem;
     }
 
+    /* Closing text */
     .closing-text {
       font-family: 'Dancing Script', cursive;
       font-size: 1.5rem;
@@ -146,6 +185,7 @@
       margin-top: 3rem;
     }
 
+    /* RSVP Form Styles */
     .rsvp-form {
       margin-top: 2rem;
       background: white;
@@ -201,6 +241,7 @@
       display: none;
     }
 
+    /* Mobile adjustments */
     @media (max-width: 480px) {
       .container {
         margin: 1rem auto;
@@ -262,47 +303,160 @@
 </head>
 
 <body>
+  <!-- Language Selection Navigation Bar -->
+  <nav class="language-nav">
+    <button class="language-btn active" data-lang="en">English</button>
+    <button class="language-btn" data-lang="pt">Português</button>
+    <button class="language-btn" data-lang="sv">Svenska</button>
+  </nav>
+
   <div class="container">
     <div class="baby-photo-container">
       <img src="baby-aurora.jpeg" alt="A photo of the baby" class="baby-photo">
     </div>
-    <p class="intro-text">Please Join us for the</p>
-    <h2 class="baptism-of">Baptism of</h2>
+    <p class="intro-text" data-translate="introText">Please Join us for the</p>
+    <h2 class="baptism-of" data-translate="baptismOf">Baptism of</h2>
     <h1 class="baby-name">Aurora Oliveira Sellgren</h1>
     <div class="date-section">
-      <span class="day-part">Sunday</span>
+      <span class="day-part" data-translate="dayPart">Sunday</span>
       <div class="line"></div>
       <div class="month-and-day">
         <span class="day-number">14</span>
-        <span class="month-text">September</span>
+        <span class="month-text" data-translate="monthText">September</span>
       </div>
       <div class="line"></div>
-      <span class="time-part">14:30</span>
+      <span class="time-part" data-translate="timePart">14:30</span>
     </div>
     <div class="address-section">
-      <div class="address-block">Uppsala Cathedral<br> Sweden</div>
+      <div class="address-block" data-translate="addressBlock">Uppsala Cathedral<br> Sweden</div>
       <span class="dove-icon">🕊️</span>
-      <div class="rsvp-block">Domkyrkoplan<br>753 10 Uppsala</div>
+      <div class="rsvp-block" data-translate="rsvpBlock">Domkyrkoplan<br>753 10 Uppsala</div>
     </div>
     <form class="rsvp-form" id="rsvp-form"
       action="https://docs.google.com/forms/d/e/1FAIpQLSdSLi3dbCnVggkk3jCLXJNsQdXLFHYk4RzaZr6-SUJrTlzlhw/formResponse"
       method="POST" target="hidden-iframe">
-      <h2>Kindly RSVP</h2>
-      <input type="text" placeholder="Your Name" name="entry.977522876" required>
-      <input type="tel" placeholder="Phone Number" name="entry.1579339437" required>
+      <h2 data-translate="formTitle">Kindly RSVP</h2>
+      <input type="text" placeholder="Your Name" data-translate-placeholder="yourNamePlaceholder" name="entry.977522876"
+        required>
+      <input type="tel" placeholder="Phone Number" data-translate-placeholder="phoneNumberPlaceholder"
+        name="entry.1579339437" required>
       <select name="entry.192193575" required>
-        <option value="">Will you attend?</option>
-        <option value="Yes, I will attend">Yes, I will attend</option>
-        <option value="No, I can't make it">No, I can't make it</option>
-        <option value="No, but I will watch the livestream">No, but I will watch the livestream</option>
+        <option value="" data-translate-option="defaultOption">Will you attend?</option>
+        <option value="Yes, I will attend" data-translate-option="yesAttend">Yes, I will attend</option>
+        <option value="No, I can't make it" data-translate-option="noAttend">No, I can't make it</option>
+        <option value="No, but I will watch the livestream" data-translate-option="watchLivestream">No, but I will watch
+          the livestream</option>
       </select>
-      <button type="submit">Submit</button>
+      <button type="submit" data-translate="submitButton">Submit</button>
     </form>
-    <p id="success-message">Thank you for your RSVP!</p>
+    <p id="success-message" data-translate="successMessage">Thank you for your RSVP!</p>
     <iframe name="hidden-iframe" style="display:none;"></iframe>
-    <p class="closing-text">We appreciate <br>your presence</p>
+    <p class="closing-text" data-translate="closingText">We appreciate <br>your presence</p>
   </div>
   <script>
+    // Translation data
+    const translations = {
+      en: {
+        introText: "Please Join us for the",
+        baptismOf: "Baptism of",
+        dayPart: "Sunday",
+        monthText: "September",
+        timePart: "14:30",
+        addressBlock: "Uppsala Cathedral<br> Sweden",
+        rsvpBlock: "Domkyrkoplan<br>753 10 Uppsala",
+        formTitle: "Kindly RSVP",
+        yourNamePlaceholder: "Your Name",
+        phoneNumberPlaceholder: "Phone Number",
+        defaultOption: "Will you attend?",
+        yesAttend: "Yes, I will attend",
+        noAttend: "No, I can't make it",
+        watchLivestream: "No, but I will watch the livestream",
+        submitButton: "Submit",
+        successMessage: "Thank you for your RSVP!",
+        closingText: "We appreciate <br>your presence"
+      },
+      pt: {
+        introText: "Junte-se a nós para o",
+        baptismOf: "Batismo de",
+        dayPart: "Domingo",
+        monthText: "Setembro",
+        timePart: "14:30",
+        addressBlock: "Catedral de Uppsala<br> Suécia",
+        rsvpBlock: "Domkyrkoplan<br>753 10 Uppsala",
+        formTitle: "Por favor, confirme a sua presença",
+        yourNamePlaceholder: "Seu Nome",
+        phoneNumberPlaceholder: "Número de Telefone",
+        defaultOption: "Você irá?",
+        yesAttend: "Sim, eu irei",
+        noAttend: "Não, eu não posso ir",
+        watchLivestream: "Não, mas vou assistir à transmissão ao vivo",
+        submitButton: "Enviar",
+        successMessage: "Obrigado por confirmar a sua presença!",
+        closingText: "Nós agradecemos <br>a sua presença"
+      },
+      sv: {
+        introText: "Välkommen till",
+        baptismOf: "Dopet av",
+        dayPart: "Söndag",
+        monthText: "September",
+        timePart: "14:30",
+        addressBlock: "Uppsala Domkyrka<br> Sverige",
+        rsvpBlock: "Domkyrkoplan<br>753 10 Uppsala",
+        formTitle: "Vänligen OSA",
+        yourNamePlaceholder: "Ditt Namn",
+        phoneNumberPlaceholder: "Telefonnummer",
+        defaultOption: "Kommer du?",
+        yesAttend: "Ja, jag kommer",
+        noAttend: "Nej, jag kan inte",
+        watchLivestream: "Nej, men jag kommer att titta på livestreamen",
+        submitButton: "Skicka",
+        successMessage: "Tack för din anmälan!",
+        closingText: "Vi uppskattar <br>din närvaro"
+      }
+    };
+
+    // Function to set the language of the page
+    function setLanguage(lang) {
+      // Find all elements with a data-translate attribute
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+
+      // Find all elements with a data-translate-placeholder attribute (for input fields)
+      document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-translate-placeholder');
+        if (translations[lang][key]) {
+          element.setAttribute('placeholder', translations[lang][key]);
+        }
+      });
+
+      // Find all elements with a data-translate-option attribute (for select options)
+      document.querySelectorAll('[data-translate-option]').forEach(element => {
+        const key = element.getAttribute('data-translate-option');
+        if (translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+
+      // Update active button state
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.querySelector(`.language-btn[data-lang="${lang}"]`).classList.add('active');
+    }
+
+    // Event listeners for the language buttons
+    document.querySelectorAll('.language-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const lang = button.getAttribute('data-lang');
+        setLanguage(lang);
+      });
+    });
+
+    // Handle form submission to Google Form
     const form = document.getElementById('rsvp-form');
     const successMessage = document.getElementById('success-message');
 
@@ -322,6 +476,11 @@
         console.error('Error submitting form:', error);
         alert('There was an error submitting your RSVP. Please try again.');
       });
+    });
+
+    // Set the initial language on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage('en');
     });
   </script>
 </body>
