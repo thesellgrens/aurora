@@ -207,6 +207,21 @@
       });
     });
 
+
+    // ... your existing translations object and setLanguage function remain the same ...
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const userLang = navigator.language || navigator.userLanguage; // e.g. "en-US", "pt-BR", "sv-SE"
+      let langCode = userLang.split('-')[0]; // just the first part: "en", "pt", "sv"
+
+      // If we don't support this language, default to English
+      if (!translations[langCode]) {
+        langCode = 'en';
+      }
+
+      setLanguage(langCode);
+    });
+
   </script>
 </body>
 
