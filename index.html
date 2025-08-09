@@ -211,15 +211,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage('en');
     });
-
-    const lang = navigator.language || navigator.userLanguage;
-    if (lang.startsWith('pt')) {
-      window.location.href = './pt/';
-    } else if (lang.startsWith('sv')) {
-      window.location.href = './sv/';
-    } else {
-      window.location.href = './en/';
-    }
   </script>
 </body>
 
