@@ -149,7 +149,8 @@
  }
 
  .address-block,
- .rsvp-block {
+ .rsvp-block,
+ .address-media {
      text-align: center;
      flex: 1;
      font-size: 0.9rem;
@@ -167,16 +168,10 @@
      border-radius: 8px;
      display: block;
      border: 1px solid #e99dbd;
-     aspect-ratio: 16/9;
-     ;
- }
-
-
- .address-media.img {
+     aspect-ratio: 1290 / 860;
      object-fit: cover;
-     border: 3px solid #e99dbd;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
  }
-
 
 
  .dove-icon {
@@ -298,7 +293,8 @@
      }
 
      .address-block,
-     .rsvp-block {
+     .rsvp-block,
+     .address-media {
          text-align: center;
          margin-bottom: 1rem;
      }
