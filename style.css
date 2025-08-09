@@ -167,6 +167,8 @@
      border-radius: 8px;
      display: block;
      border: 1px solid #e99dbd;
+     aspect-ratio: 16/9;
+     ;
  }
 
 
