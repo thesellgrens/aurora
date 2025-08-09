@@ -163,7 +163,7 @@
  .address-media {
      width: 100%;
      max-width: 400px;
-     height: auto;
+     /*height: auto;*/
      margin-top: 10px;
      border-radius: 8px;
      display: block;
@@ -293,11 +293,16 @@
      }
 
      .address-block,
-     .rsvp-block,
-     .address-media {
+     .rsvp-block {
          text-align: center;
          margin-bottom: 1rem;
      }
+
+     .address-block img,
+     .address-media {
+         height: 300px
+     }
+
 
      .dove-icon {
          margin: 1rem 0;
