@@ -206,20 +206,14 @@
         alert('There was an error submitting your RSVP. Please try again.');
       });
     });
-
-
-    // ... your existing translations object and setLanguage function remain the same ...
-
+    // Set the initial language on page load based on the browser's language
     document.addEventListener('DOMContentLoaded', () => {
-      const userLang = navigator.language || navigator.userLanguage; // e.g. "en-US", "pt-BR", "sv-SE"
-      let langCode = userLang.split('-')[0]; // just the first part: "en", "pt", "sv"
-
-      // If we don't support this language, default to English
-      if (!translations[langCode]) {
-        langCode = 'en';
+      const userLang = navigator.language.split('-')[0]; // Get the primary language code (e.g., 'en' from 'en-US')
+      if (translations[userLang]) {
+        setLanguage(userLang);
+      } else {
+        setLanguage('en'); // Default to English if the user's language is not available
       }
-
-      setLanguage(langCode);
     });
 
   </script>
