@@ -134,9 +134,9 @@
         formTitle: "Vänligen OSA",
         yourNamePlaceholder: "Ditt Namn",
         phoneNumberPlaceholder: "Telefonnummer",
-        defaultOption: "Kan du komma??",
+        defaultOption: "Kan du komma?",
         yesAttend: "Ja, såklart jag kommer!",
-        noAttend: "Nej, jag kan intNej tyvärr, kan ej komma",
+        noAttend: "Nej tyvärr, kan ej komma",
         watchLivestream: "Nej, men deltar gärna via livestream",
         submitButton: "Skicka",
         successMessage: "Tack för din anmälan!",
@@ -211,6 +211,15 @@
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage('en');
     });
+
+    const lang = navigator.language || navigator.userLanguage;
+    if (lang.startsWith('pt')) {
+      window.location.href = './pt/';
+    } else if (lang.startsWith('sv')) {
+      window.location.href = './sv/';
+    } else {
+      window.location.href = './en/';
+    }
   </script>
 </body>
 
